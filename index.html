@@ -1,79 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>R S Mart</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #111;
-      color: #fff;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #000000, #1c1c3c, #2b002b);
+      color: #ffffff;
     }
 
     header {
-      background: linear-gradient(90deg, #ff00cc, #3333ff);
-      width: 100%;
-      padding: 20px 0;
+      background: #000;
+      padding: 30px 0;
       text-align: center;
-      font-size: 32px;
+      font-size: 42px;
       font-weight: bold;
       color: #fff;
-      text-shadow: 0 0 10px #fff, 0 0 20px #ff00cc;
-      animation: pop 1s infinite alternate;
+      text-shadow: 0 0 8px #0ff, 0 0 20px #f0f, 0 0 30px #f00;
+      animation: neonGlow 1.5s infinite alternate ease-in-out;
     }
 
-    @keyframes pop {
-      from { transform: scale(1); }
-      to { transform: scale(1.05); }
+    @keyframes neonGlow {
+      from {
+        text-shadow: 0 0 8px #0ff, 0 0 20px #f0f, 0 0 30px #f00;
+      }
+      to {
+        text-shadow: 0 0 18px #00f, 0 0 30px #0ff, 0 0 45px #f0f;
+      }
     }
 
     .banner {
       width: 100%;
-      max-width: 400px;
-      height: auto;
+      max-height: 500px;
+      object-fit: cover;
+      display: block;
     }
 
     .welcome {
-      text-align: center;
       padding: 30px 20px;
-      background: #1a1a1a;
-      width: 100%;
-      max-width: 400px;
-      border-bottom: 2px solid #444;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #ddd;
     }
 
     .welcome h2 {
-      font-size: 26px;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc;
-    }
-
-    .welcome p {
-      font-size: 16px;
-      color: #ccc;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
     }
 
     .product-container {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      padding: 10px;
-      width: 100%;
-      max-width: 400px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
     }
 
     .product {
-      background-color: #222;
-      border: 2px solid #444;
+      background: linear-gradient(to bottom right, #1c1c3c, #300030);
+      border: 2px solid #7700ff;
       border-radius: 10px;
-      padding: 10px;
+      padding: 15px;
       text-align: center;
-      box-shadow: 0 0 10px #00ffcc;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 0 12px #7700ff66;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff007755;
     }
 
     .product img {
@@ -81,93 +80,102 @@
       border-radius: 8px;
     }
 
+    .product p {
+      color: #eee;
+      font-size: 14px;
+      margin: 10px 0;
+    }
+
     .buy-btn {
-      margin-top: 10px;
-      padding: 10px;
-      background-color: #00ffcc;
-      color: #000;
+      background-color: #ff0040;
+      color: #fff;
       border: none;
-      border-radius: 5px;
+      padding: 10px 15px;
       font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
     }
 
     .form-popup {
       display: none;
       position: fixed;
-      bottom: 20px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #333;
+      background: #222;
       padding: 20px;
       border-radius: 10px;
-      box-shadow: 0 0 20px #00ffcc;
+      box-shadow: 0 0 20px #00ffff88;
+      z-index: 999;
     }
 
     .form-popup input {
-      display: block;
-      width: 100%;
       margin-bottom: 10px;
-      padding: 10px;
+      padding: 8px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
     }
 
     .form-popup button {
-      background-color: #00ffcc;
-      color: #000;
-      padding: 10px;
+      background-color: #00ffff;
       border: none;
+      padding: 10px;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
       cursor: pointer;
     }
   </style>
 </head>
 <body>
+
   <header>R S Mart</header>
 
-  <img class="banner" src="https://images.pexels.com/photos/7414284/pexels-photo-7414284.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Banner">
+  <img class="banner" src="https://images.pexels.com/photos/6633791/pexels-photo-6633791.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Fashion Banner" />
 
   <div class="welcome">
     <h2>Welcome to R S Mart</h2>
-    <p>Your one-stop shop for premium quality clothing at affordable prices.</p>
-    <p>Why choose us?</p>
-    <ul style="text-align: left; padding-left: 20px;">
-      <li>✅ 100% Quality Assured</li>
+    <p>Premium style, supreme comfort, and quality service.</p>
+    <ul style="list-style: none; padding: 0;">
       <li>✅ Fast Delivery</li>
-      <li>✅ Affordable Prices</li>
-      <li>✅ Easy Ordering via WhatsApp</li>
+      <li>✅ 100% Quality Assured</li>
+      <li>✅ Affordable Pricing</li>
+      <li>✅ Order Now on WhatsApp</li>
     </ul>
   </div>
 
   <div class="product-container">
+
     <div class="product">
-      <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR6HwDplDK06IwAddV6D1vp_YIRQsAVXouHqG7pvHUXy_h36Oz4dr_KKkbOvbsSLS_1RuOdinqwqEp14zTWCN8ofp2sduWgxE-rzeGeB98" alt="Product 1">
-      <p>100% quality<br>Rupees 550<br>Available in stock</p>
+      <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcR6HwDplDK06IwAddV6D1vp_YIRQsAVXouHqG7pvHUXy_h36Oz4dr_KKkbOvbsSLS_1RuOdinqwqEp14zTWCN8ofp2sduWgxE-rzeGeB98" alt="Basic T-shirt">
+      <p>Cool Gym Outfit<br>100% Quality<br>₹550<br>Available in stock</p>
       <button class="buy-btn" onclick="openForm()">Buy</button>
     </div>
+
     <div class="product">
-      <img src="https://via.placeholder.com/100" alt="Product 2">
-      <p>100% quality<br>Rupees 550<br>Available in stock</p>
+      <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/bd0f516f-5e4c-4af4-8345-ee39362322e4/M+J+JUMPMAN+SS+CREW.png" alt="Jordan T-Shirt">
+      <p>Jordan T-Shirt<br>Premium Sportswear<br>₹550<br>In stock now</p>
       <button class="buy-btn" onclick="openForm()">Buy</button>
     </div>
+
     <div class="product">
-      <img src="https://via.placeholder.com/100" alt="Product 3">
-      <p>100% quality<br>Rupees 550<br>Available in stock</p>
+      <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTSYwkRK6DVcd3PipXRWcn9sOYCXUvUv6zhA36xQU0qDtPfrzZMr3r-Od4CncNonPDzN4toDgYQa41BE6On-Ay3QYi4VWWvS9GeI8FC3-Q6E-62UlA1G1dFxg" alt="Cool Gym Shirt">
+      <p>Cool Gym Shirt<br>Breathable Material<br>₹550<br>Workout Ready</p>
       <button class="buy-btn" onclick="openForm()">Buy</button>
     </div>
+
     <div class="product">
-      <img src="https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco,u_126ab356-44d8-4a06-89b4-fcdcc8df0245,c_scale,fl_relative,w_1.0,h_1.0,fl_layer_apply/bd0f516f-5e4c-4af4-8345-ee39362322e4/M+J+JUMPMAN+SS+CREW.png" alt="Nike T-Shirt">
-      <p>Jordan T-Shirt<br>100% quality<br>Rupees 550<br>Available in stock</p>
+      <img src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQ6HM8MGdW-0k-Ky8_oqV-ZrJhgsjDAwHEFRrSraRhJsAkthpPu2q4Ppeo2Ugr1b7ko1amaPJB5NXmUS7S8AQMhYSO9gkjJVyEBu8ohWXmi-rd_QU5fFWn9LKg&usqp=CAc" alt="Black Shirt">
+      <p>Slim Fit Black Shirt<br>100% Cotton<br>₹550<br>Modern Look</p>
       <button class="buy-btn" onclick="openForm()">Buy</button>
     </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1582735687526-61c7c53beff6?auto=format&fit=crop&w=400&q=80" alt="Jordan T-Shirt">
-      <p>Nike T-Shirt<br>100% quality<br>Rupees 550<br>Available in stock</p>
-      <button class="buy-btn" onclick="openForm()">Buy</button>
-    </div>
+
   </div>
 
   <div class="form-popup" id="formPopup">
-    <input type="text" id="phone" placeholder="Your Phone Number">
-    <input type="text" id="address" placeholder="Your Address">
+    <input type="text" id="phone" placeholder="Your Phone Number" />
+    <input type="text" id="address" placeholder="Your Address" />
     <button onclick="submitOrder()">Submit</button>
   </div>
 
